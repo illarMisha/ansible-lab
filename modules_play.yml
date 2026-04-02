@@ -1,0 +1,19 @@
+- hosts: local
+  gather_facts: false
+
+  tasks:
+    - name: Run info module
+      info_module:
+        name: "Mikhail"
+      register: info_result
+
+    - name: Show info result
+      debug:
+        var: info_result.message
+
+    - name: Run facts module
+      facts_module:
+
+    - name: Show custom facts
+      debug:
+        var: ansible_facts.custom_facts
